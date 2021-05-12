@@ -17,6 +17,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
+      - run: npm install -g gulp
 
   publish-npm:
     needs: build
@@ -46,5 +47,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm publish
+      - run: npm install -g gulp
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
